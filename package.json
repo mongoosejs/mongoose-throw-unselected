@@ -1,6 +1,6 @@
 {
   "name": "mongoose-throw-unselected",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "author": "Valeri Karpov <val@karpov.io>",
   "description": "Throws an error whenever you access a field on a mongoose document that is projected out",
   "devDependencies": {
