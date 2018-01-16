@@ -6,7 +6,7 @@
   "devDependencies": {
     "acquit": "0.5.1",
     "acquit-ignore": "0.0.3",
-    "acquit-markdown": "0.0.5",
+    "acquit-markdown": "0.0.8",
     "istanbul": "0.4.2",
     "mocha": "3.0.2",
     "mongodb": "~2.2.9",
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "coverage": "istanbul cover _mocha -- -R spec ./test/*",
-    "docs": "node docs.js",
+    "docs": "acquit-markdown -r acquit-ignore -p './test/examples.test.js' -h './HEADER.md' > README.md",
     "test": "mocha ./test/*"
   }
 }
