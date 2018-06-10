@@ -21,27 +21,25 @@ if the [field is included by checking `isSelected()`](http://mongoosejs.com/docs
 
 
 ```javascript
+const schema = new mongoose.Schema({
+  name: {
+    first: String,
+    last: String,
+  },
+  age: Number
+});
 
-    const schema = new mongoose.Schema({
-      name: {
-        first: String,
-        last: String,
-      },
-      age: Number
-    });
+schema.plugin(mongooseThrowUnselected);
 
-    schema.plugin(mongooseThrowUnselected);
+const Model = mongoose.model('Person', schema);
 
-    const Model = mongoose.model('Person', schema);
-
-    return Model.create({ name: { first: 'Valeri', last: 'Karpov' }, age: 28 }).
-      // Explicitly exclude 'name.first'
-      then(() => Model.findOne().select({ 'name.first': false })).
-      then(doc => {
-        assert.throws(() => doc.name.first);
-        assert.doesNotThrow(() => doc.name);
-        assert.equal(doc.name.last, 'Karpov');
-        assert.equal(doc.age, 28);
-      });
-  
+return Model.create({ name: { first: 'Valeri', last: 'Karpov' }, age: 28 }).
+  // Explicitly exclude 'name.first'
+  then(() => Model.findOne().select({ 'name.first': false })).
+  then(doc => {
+    assert.throws(() => doc.name.first);
+    assert.doesNotThrow(() => doc.name);
+    assert.equal(doc.name.last, 'Karpov');
+    assert.equal(doc.age, 28);
+  });
 ```
