@@ -4,12 +4,12 @@
   "author": "Valeri Karpov <val@karpov.io>",
   "description": "Throws an error whenever you access a field on a mongoose document that is projected out",
   "devDependencies": {
-    "acquit": "1.0.0",
-    "acquit-ignore": "0.0.3",
+    "acquit": "1.0.2",
+    "acquit-ignore": "0.1.0",
     "acquit-markdown": "0.1.0",
     "istanbul": "0.4.2",
     "mocha": "5.x",
-    "mongodb": "~2.2.9",
+    "mongodb": "3.x",
     "mongoose": "5.x"
   },
   "engines": {
